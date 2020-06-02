@@ -7,6 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XXViewController.h"
+
+
+//CHDeclareClass(ViewController)
+//
+//CHClassMethod0(void, ViewController, load){
+//    CFTimeInterval start = CFAbsoluteTimeGetCurrent();
+//    
+//    CHSuper0(ViewController,load);
+//    
+//    CFTimeInterval end = CFAbsoluteTimeGetCurrent();
+////     output: end - start
+//    NSLog(@"@f",end - start);
+//}
+//
+//__attribute__((constructor)) static void entry(){
+//    NSLog(@"dylib loaded");
+//    
+//    CHLoadLateClass(ViewController);
+//    CHHook0(ViewController, load);
+//}
 
 @interface ViewController : UIViewController
 

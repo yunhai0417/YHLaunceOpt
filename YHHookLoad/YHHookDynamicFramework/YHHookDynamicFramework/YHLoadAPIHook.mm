@@ -13,6 +13,7 @@
 #import <objc/message.h>
 #include <objc/runtime.h>
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 
 
 // 获取所有加载的macho
@@ -96,33 +97,35 @@ static void PrintAllImagePaths() {
 static NSMutableArray<NSString*> *g_loadcosts;
 
 
-//#define LoadRulerBegin \
-//    NSLog(@">>>> before");\
+#define LoadRulerBegin \
+    NSLog(@">>>> before");\
 //    CFTimeInterval begin = CACurrentMediaTime();
-//
-//#define LoadRulerEnd \
+
+#define LoadRulerEnd \
 //    CFTimeInterval end = CACurrentMediaTime();\
-//    if(!g_loadcosts){\
-//    g_loadcosts = [[NSMutableArray alloc]initWithCapacity:10];\
-//    }\
+    if(!g_loadcosts){\
+    g_loadcosts = [[NSMutableArray alloc]initWithCapacity:10];\
+    }\
 //    [g_loadcosts addObject:[NSString stringWithFormat:@"%@ - %@ms",NSStringFromClass([self class]), @(1000 * (end - begin))]];\
-//    NSLog(@"<<<< after");
-//
+    NSLog(@"<<<< after");
 
-
+@interface YHLoadAPIHook : NSObject
+@end
 
 @implementation YHLoadAPIHook
 
 +(void)LoadRulerSwizzledLoad0{
     NSLog(@">>>> before");
-    //    CFTimeInterval begin = CACurrentMediaTime();
+//    LoadRulerBegin;
+        CFTimeInterval begin = CACurrentMediaTime();
     [self LoadRulerSwizzledLoad0];
-    //    CFTimeInterval end = CACurrentMediaTime();
+//    LoadRulerEnd
+        CFTimeInterval end = CACurrentMediaTime();
     //    if(!g_loadcosts){
     //    g_loadcosts = [[NSMutableArray alloc]initWithCapacity:10];
     //    }
     //    [g_loadcosts addObject:[NSString stringWithFormat:@"%@ - %@ms",NSStringFromClass([self class]), @(1000 * (end - begin))]];
-    NSLog(@"<<<< after");
+//    NSLog(@"<<<< after");
 }
 
 +(void)LoadRulerSwizzledLoad1{
@@ -151,7 +154,7 @@ static NSMutableArray<NSString*> *g_loadcosts;
     //    PrintAllImagePaths();
     
     SEL originalSelector = @selector(load);
-    Class hookClass = [YHLoadAPIHook class];
+    Class hookClass = object_getClass(NSClassFromString(@"YHLoadAPIHook"));
     
     std::vector<std::string> product_image_paths;
     AppendProductImagePaths(product_image_paths);
@@ -165,7 +168,7 @@ static NSMutableArray<NSString*> *g_loadcosts;
             Class cls = object_getClass(NSClassFromString(className));
             
             // 不要把自己hook了
-            if(cls == [self class]){
+            if(cls == hookClass ){
                 continue;
             }
             
@@ -180,7 +183,7 @@ static NSMutableArray<NSString*> *g_loadcosts;
                 if(methodName == "load") {
                     SEL swizzledSelector = NSSelectorFromString([NSString stringWithFormat:@"LoadRulerSwizzledLoad%@",@(currentLoadIndex)]);
                     Method originalMethod = method;
-                    Method swizzledMethod = class_getClassMethod([YHLoadAPIHook class], swizzledSelector);
+                    Method swizzledMethod = class_getClassMethod(hookClass, swizzledSelector);
                     
                     BOOL addSuccess = class_addMethod(cls, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod));
                     // 添加成功，则说明不存在load。但动态添加的load，不会被调用。与load的调用方式有关。
@@ -210,11 +213,11 @@ static NSMutableArray<NSString*> *g_loadcosts;
 @end
 
 
-//extern "C"
-//void LoadRulerPrintLoadCostsInfo(){
-//    NSLog(@">> all load cost info below :");
-//    for(NSString *costInfo in g_loadcosts){
-//        NSLog(@"%@",costInfo);
-//    }
-//}
+extern "C"
+void LoadRulerPrintLoadCostsInfo(){
+    NSLog(@">> all load cost info below :");
+    for(NSString *costInfo in g_loadcosts){
+        NSLog(@"%@",costInfo);
+    }
+}
 

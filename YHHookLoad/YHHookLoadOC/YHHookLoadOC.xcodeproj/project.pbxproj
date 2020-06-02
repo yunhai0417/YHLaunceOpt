@@ -14,7 +14,34 @@
 		601C0174247FB1E500601283 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 601C0173247FB1E500601283 /* Assets.xcassets */; };
 		601C0177247FB1E500601283 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 601C0175247FB1E500601283 /* LaunchScreen.storyboard */; };
 		601C017A247FB1E600601283 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 601C0179247FB1E600601283 /* main.m */; };
+		601C01A72480DC6A00601283 /* XXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 601C01A62480DC6900601283 /* XXViewController.m */; };
+		601C01E72481127300601283 /* YHHookLoadFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 601C01D92480EC9500601283 /* YHHookLoadFramework.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		601C01E82481127300601283 /* YHHookLoadFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 601C01D92480EC9500601283 /* YHHookLoadFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		601C01D82480EC9500601283 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 601C01D42480EC9100601283 /* YHHookLoadFramework.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 601C01C92480EC9100601283;
+			remoteInfo = YHHookLoadFramework;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		601C01E92481127300601283 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				601C01E82481127300601283 /* YHHookLoadFramework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		601C0164247FB1E200601283 /* YHHookLoadOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YHHookLoadOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -29,6 +56,9 @@
 		601C0176247FB1E500601283 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		601C0178247FB1E600601283 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		601C0179247FB1E600601283 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		601C01A52480DC6900601283 /* XXViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XXViewController.h; sourceTree = "<group>"; };
+		601C01A62480DC6900601283 /* XXViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XXViewController.m; sourceTree = "<group>"; };
+		601C01D42480EC9100601283 /* YHHookLoadFramework.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = YHHookLoadFramework.xcodeproj; path = YHHookLoadFramework/YHHookLoadFramework.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				601C01E72481127300601283 /* YHHookLoadFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,8 +76,10 @@
 		601C015B247FB1E200601283 = {
 			isa = PBXGroup;
 			children = (
+				601C01D42480EC9100601283 /* YHHookLoadFramework.xcodeproj */,
 				601C0166247FB1E200601283 /* YHHookLoadOC */,
 				601C0165247FB1E200601283 /* Products */,
+				601C01E02480EFFB00601283 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,8 +105,25 @@
 				601C0175247FB1E500601283 /* LaunchScreen.storyboard */,
 				601C0178247FB1E600601283 /* Info.plist */,
 				601C0179247FB1E600601283 /* main.m */,
+				601C01A52480DC6900601283 /* XXViewController.h */,
+				601C01A62480DC6900601283 /* XXViewController.m */,
 			);
 			path = YHHookLoadOC;
+			sourceTree = "<group>";
+		};
+		601C01D52480EC9100601283 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				601C01D92480EC9500601283 /* YHHookLoadFramework.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		601C01E02480EFFB00601283 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,6 +136,7 @@
 				601C0160247FB1E200601283 /* Sources */,
 				601C0161247FB1E200601283 /* Frameworks */,
 				601C0162247FB1E200601283 /* Resources */,
+				601C01E92481127300601283 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -121,12 +172,28 @@
 			mainGroup = 601C015B247FB1E200601283;
 			productRefGroup = 601C0165247FB1E200601283 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 601C01D52480EC9100601283 /* Products */;
+					ProjectRef = 601C01D42480EC9100601283 /* YHHookLoadFramework.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				601C0163247FB1E200601283 /* YHHookLoadOC */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		601C01D92480EC9500601283 /* YHHookLoadFramework.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = YHHookLoadFramework.framework;
+			remoteRef = 601C01D82480EC9500601283 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		601C0162247FB1E200601283 /* Resources */ = {
@@ -148,6 +215,7 @@
 			files = (
 				601C016F247FB1E200601283 /* ViewController.m in Sources */,
 				601C0169247FB1E200601283 /* AppDelegate.m in Sources */,
+				601C01A72480DC6A00601283 /* XXViewController.m in Sources */,
 				601C017A247FB1E600601283 /* main.m in Sources */,
 				601C016C247FB1E200601283 /* SceneDelegate.m in Sources */,
 			);
@@ -291,12 +359,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CQ44W28Q5W;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = YHHookLoadOC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = xdf.Yunhai.YHHookLoadOC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -309,12 +383,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CQ44W28Q5W;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = YHHookLoadOC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = xdf.Yunhai.YHHookLoadOC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -10,11 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YHLoadAPIHook : NSObject
-@end
 
-//extern "C"{
-//    FOUNDATION_EXPORT void LoadRulerPrintLoadCostsInfo();
-//}
+
+extern "C"{
+    FOUNDATION_EXPORT void LoadRulerPrintLoadCostsInfo();
+}
 
 NS_ASSUME_NONNULL_END

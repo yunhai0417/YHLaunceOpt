@@ -9,7 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 
+FOUNDATION_IMPORT void LoadRulerPrintLoadCostsInfo();
+
 int main(int argc, char * argv[]) {
+    
+    LoadRulerPrintLoadCostsInfo();
+    
     NSString * appDelegateClassName;
     @autoreleasepool {
         // Setup code that might create autoreleased objects goes here.

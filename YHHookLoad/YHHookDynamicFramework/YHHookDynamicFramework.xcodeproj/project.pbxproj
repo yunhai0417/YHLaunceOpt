@@ -8,12 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		601C018F247FB77500601283 /* YHHookDynamicFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 601C018D247FB77500601283 /* YHHookDynamicFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		601C0196247FB7F500601283 /* CaptainHook.h in Headers */ = {isa = PBXBuildFile; fileRef = 601C0195247FB7F500601283 /* CaptainHook.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		601C019F247FDB1900601283 /* YHLoadAPIHook.h in Headers */ = {isa = PBXBuildFile; fileRef = 601C019D247FDB1900601283 /* YHLoadAPIHook.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		601C01A0247FDB1900601283 /* YHLoadAPIHook.mm in Sources */ = {isa = PBXBuildFile; fileRef = 601C019E247FDB1900601283 /* YHLoadAPIHook.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		601C018A247FB77500601283 /* YHHookDynamicFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YHHookDynamicFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		601C018D247FB77500601283 /* YHHookDynamicFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHHookDynamicFramework.h; sourceTree = "<group>"; };
 		601C018E247FB77500601283 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		601C0195247FB7F500601283 /* CaptainHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptainHook.h; sourceTree = "<group>"; };
+		601C019D247FDB1900601283 /* YHLoadAPIHook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHLoadAPIHook.h; sourceTree = "<group>"; };
+		601C019E247FDB1900601283 /* YHLoadAPIHook.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = YHLoadAPIHook.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,8 +52,11 @@
 		601C018C247FB77500601283 /* YHHookDynamicFramework */ = {
 			isa = PBXGroup;
 			children = (
+				601C0195247FB7F500601283 /* CaptainHook.h */,
 				601C018D247FB77500601283 /* YHHookDynamicFramework.h */,
 				601C018E247FB77500601283 /* Info.plist */,
+				601C019D247FDB1900601283 /* YHLoadAPIHook.h */,
+				601C019E247FDB1900601283 /* YHLoadAPIHook.mm */,
 			);
 			path = YHHookDynamicFramework;
 			sourceTree = "<group>";
@@ -59,7 +68,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				601C0196247FB7F500601283 /* CaptainHook.h in Headers */,
 				601C018F247FB77500601283 /* YHHookDynamicFramework.h in Headers */,
+				601C019F247FDB1900601283 /* YHLoadAPIHook.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				601C01A0247FDB1900601283 /* YHLoadAPIHook.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,7 +200,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -243,7 +255,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -256,6 +268,7 @@
 		601C0193247FB77500601283 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = CQ44W28Q5W;
@@ -264,6 +277,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = YHHookDynamicFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -279,6 +293,7 @@
 		601C0194247FB77500601283 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = CQ44W28Q5W;
@@ -287,6 +302,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = YHHookDynamicFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
