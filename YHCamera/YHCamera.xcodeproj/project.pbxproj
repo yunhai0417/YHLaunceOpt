@@ -14,9 +14,11 @@
 		601DF58724A0BB23002FF6ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 601DF58624A0BB23002FF6ED /* Assets.xcassets */; };
 		601DF58A24A0BB23002FF6ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 601DF58824A0BB23002FF6ED /* LaunchScreen.storyboard */; };
 		601DF58D24A0BB23002FF6ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 601DF58C24A0BB23002FF6ED /* main.m */; };
+		D892D5E5C7D0219695AFEF73 /* libPods-YHCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DFFEADC2F4EF4A6AC526B416 /* libPods-YHCamera.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		510553A8BBDEB39267016370 /* Pods-YHCamera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YHCamera.release.xcconfig"; path = "Target Support Files/Pods-YHCamera/Pods-YHCamera.release.xcconfig"; sourceTree = "<group>"; };
 		601DF57724A0BB1F002FF6ED /* YHCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YHCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		601DF57A24A0BB1F002FF6ED /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		601DF57B24A0BB1F002FF6ED /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -29,6 +31,8 @@
 		601DF58924A0BB23002FF6ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		601DF58B24A0BB23002FF6ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		601DF58C24A0BB23002FF6ED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A8389B173A97BD6CEC98A24E /* Pods-YHCamera.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YHCamera.debug.xcconfig"; path = "Target Support Files/Pods-YHCamera/Pods-YHCamera.debug.xcconfig"; sourceTree = "<group>"; };
+		DFFEADC2F4EF4A6AC526B416 /* libPods-YHCamera.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YHCamera.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,17 +40,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D892D5E5C7D0219695AFEF73 /* libPods-YHCamera.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		44B982F208E296816C509458 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A8389B173A97BD6CEC98A24E /* Pods-YHCamera.debug.xcconfig */,
+				510553A8BBDEB39267016370 /* Pods-YHCamera.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		5F0F4B2FDCC9AAEE52790258 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DFFEADC2F4EF4A6AC526B416 /* libPods-YHCamera.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		601DF56E24A0BB1F002FF6ED = {
 			isa = PBXGroup;
 			children = (
 				601DF57924A0BB1F002FF6ED /* YHCamera */,
 				601DF57824A0BB1F002FF6ED /* Products */,
+				44B982F208E296816C509458 /* Pods */,
+				5F0F4B2FDCC9AAEE52790258 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +108,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 601DF59024A0BB23002FF6ED /* Build configuration list for PBXNativeTarget "YHCamera" */;
 			buildPhases = (
+				922843A115981A0BA3379051 /* [CP] Check Pods Manifest.lock */,
 				601DF57324A0BB1F002FF6ED /* Sources */,
 				601DF57424A0BB1F002FF6ED /* Frameworks */,
 				601DF57524A0BB1F002FF6ED /* Resources */,
@@ -140,6 +166,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		922843A115981A0BA3379051 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YHCamera-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		601DF57324A0BB1F002FF6ED /* Sources */ = {
@@ -287,11 +338,13 @@
 		};
 		601DF59124A0BB23002FF6ED /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8389B173A97BD6CEC98A24E /* Pods-YHCamera.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CQ44W28Q5W;
 				INFOPLIST_FILE = YHCamera/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,11 +357,13 @@
 		};
 		601DF59224A0BB23002FF6ED /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 510553A8BBDEB39267016370 /* Pods-YHCamera.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CQ44W28Q5W;
 				INFOPLIST_FILE = YHCamera/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

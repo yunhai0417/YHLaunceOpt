@@ -1,0 +1,6 @@
+module Pods_YHCamera {
+  umbrella header "Pods-YHCamera-umbrella.h"
+
+  export *
+  module * { export * }
+}
