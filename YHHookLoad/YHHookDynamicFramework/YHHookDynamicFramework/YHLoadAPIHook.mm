@@ -117,10 +117,10 @@ static NSMutableArray<NSString*> *g_loadcosts;
 +(void)LoadRulerSwizzledLoad0{
     NSLog(@">>>> before");
 //    LoadRulerBegin;
-        CFTimeInterval begin = CACurrentMediaTime();
+//        CFTimeInterval begin = CACurrentMediaTime();
     [self LoadRulerSwizzledLoad0];
 //    LoadRulerEnd
-        CFTimeInterval end = CACurrentMediaTime();
+//        CFTimeInterval end = CACurrentMediaTime();
     //    if(!g_loadcosts){
     //    g_loadcosts = [[NSMutableArray alloc]initWithCapacity:10];
     //    }
