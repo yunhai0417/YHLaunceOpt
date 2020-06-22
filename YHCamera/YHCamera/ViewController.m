@@ -13,8 +13,13 @@
 
 //摄像头输入
 @property(nonatomic, strong) AVCaptureDeviceInput   *cameraInput;
+//麦克风输入
+@property(nonatomic, strong) AVCaptureDeviceInput   *audioMicInput;
 //捕获视频的会话
 @property(nonatomic, strong) AVCaptureSession       *recordSession;
+
+@property (copy  , nonatomic) dispatch_queue_t       captureQueue;//录制的队列
+
 
 @end
 
@@ -59,6 +64,24 @@
         _cameraInput = [[AVCaptureDeviceInput alloc] initWithDevice:[self cameraWithPosition:AVCaptureDevicePositionBack] error:&error];
     }
     return _cameraInput;
+}
+
+//麦克风输入
+-(AVCaptureDeviceInput *)audioMicInput {
+    if (_audioMicInput == nil) {
+        AVCaptureDevice *mic = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeAudio];
+        NSError *error;
+        _audioMicInput = [AVCaptureDeviceInput deviceInputWithDevice:mic error:&error];
+    }
+    return _audioMicInput;
+}
+
+//录制的队列
+- (dispatch_queue_t)captureQueue {
+    if (_captureQueue == nil) {
+        _captureQueue = dispatch_queue_create(0, 0);
+    }
+    return _captureQueue;
 }
 
 
